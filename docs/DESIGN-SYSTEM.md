@@ -192,3 +192,9 @@ RestoCommerce applique une approche mobile-first. Chaque surface interactive est
 Toute nouvelle surface doit commencer par préciser son utilisateur, son action principale, son état vide et sa stratégie de retour d’erreur. Elle réutilise les primitives existantes avant d’introduire une nouvelle variation. Les feuilles de style documentent en tête la direction visuelle du fichier ; elles restent ciblées à leur route afin de ne pas dégrader le storefront, le checkout ou la marketplace.
 
 Avant livraison, une modification visuelle est vérifiée sur mobile, tablette et desktop, puis au clavier. Un composant qui dépend d’une donnée WooCommerce doit rendre un état honnête lorsque cette donnée n’existe pas. Une modification qui exige une écriture de préférence ou de données métier n’est exécutée qu’après un geste explicite de l’utilisateur concerné.
+
+## Recherche home — 2.7.56
+
+Le trigger de recherche est une action contextuelle de la home, placée entre la navigation et le contexte panier. Il doit rester une action discrète mais immédiatement identifiable, avec le raccourci `⌘K` visible sur desktop. Le dialogue reprend les primitives éditoriales RestoCommerce : surface ivoire, typographie serif de titre, accent corail réservé à l’action principale et suggestions sous forme de puces.
+
+Le composant est rendu côté PHP dans `front-page.php` et ne doit pas être transformé en application React. Le clavier ouvre avec Ctrl/Cmd+K, place le focus dans le champ, accepte `Escape`, restitue le focus au trigger à la fermeture et maintient `aria-expanded` synchronisé. La soumission doit réutiliser le filtre marketplace existant et rendre un état vide honnête lorsque la requête ne correspond à aucune carte.

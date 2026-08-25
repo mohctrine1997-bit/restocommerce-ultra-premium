@@ -45,8 +45,9 @@ $rc_brand_tagline = $rc_store_context ? __( 'Restaurant partenaire', 'restocomme
 				<?php endif; ?>
 				<?php if ( function_exists( 'wcfm_is_vendor' ) ) : ?><a href="<?php echo esc_url( home_url( '/store-manager/' ) ); ?>"><?php esc_html_e( 'Espace restaurateur', 'restocommerce' ); ?></a><?php endif; ?>
 			</nav>
-			<div class="rc-header-actions">
-				<?php if ( ! $rc_store_context ) : ?><span class="rc-location-pill" aria-label="<?php esc_attr_e( 'Marketplace Maroc', 'restocommerce' ); ?>"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Zm0-8a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg> Maroc</span><?php endif; ?>
+<div class="rc-header-actions">
+					<?php if ( ! $rc_store_context && is_front_page() ) : ?><button class="rc-search-trigger" type="button" data-rc-open-search aria-controls="rc-home-search" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4m2.1-5.1a7.2 7.2 0 1 1-14.4 0 7.2 7.2 0 0 1 14.4 0Z"/></svg><span><?php esc_html_e( 'Rechercher', 'restocommerce' ); ?></span><kbd aria-hidden="true">⌘K</kbd></button><?php endif; ?>
+					<?php if ( ! $rc_store_context ) : ?><span class="rc-location-pill" aria-label="<?php esc_attr_e( 'Marketplace Maroc', 'restocommerce' ); ?>"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Zm0-8a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg> Maroc</span><?php endif; ?>
 				<?php if ( class_exists( 'WooCommerce' ) ) : ?>
 					<button class="<?php echo $rc_store_context ? 'rc-cart-button' : 'rc-cart-medallion'; ?>" type="button" data-rc-open-cart aria-label="<?php esc_attr_e( 'Ouvrir le panier', 'restocommerce' ); ?>">
 						<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 1.9-1.4L20 8H7M10 20.2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>

@@ -2,7 +2,7 @@
 
 ## État de référence
 
-Le dépôt public correspond à la version de référence **RestoCommerce 2.7.54**. Le produit déployé est un thème PHP WordPress; le dossier `client/` contient un prototype React historique et ne constitue pas le runtime WordPress principal.
+Le dépôt public correspond à la version de référence **RestoCommerce 2.7.56**. Le produit déployé est un thème PHP WordPress; le dossier `client/` contient un prototype React historique et ne constitue pas le runtime WordPress principal.
 
 RestoCommerce est une marketplace de restaurants basée sur WordPress, WooCommerce et WCFM Marketplace. WooCommerce reste la source des produits, du panier et des commandes. WCFM reste le moteur des rôles, de la propriété vendeur et des autorisations. RestoCommerce remplace progressivement l’expérience visible, sans contourner les droits WCFM.
 
@@ -20,7 +20,7 @@ RestoCommerce est une marketplace de restaurants basée sur WordPress, WooCommer
 | Contrat serveur | `functions.php` | Nonces, permissions, endpoints, métadonnées, panier et commandes |
 | Plugins | `wordpress-plugin/` | Pont WCFM, contenu de démonstration et checkout WhatsApp |
 
-## Fonctionnalités livrées en 2.7.54
+## Fonctionnalités livrées en 2.7.54 et 2.7.56
 
 Le vendeur peut créer une catégorie de carte avec un nom, une icône et une photo facultative. Une nouvelle catégorie reste visible dans la bibliothèque et le wizard même avant son premier produit.
 
@@ -29,6 +29,10 @@ Le vendeur peut créer une bibliothèque de choix réutilisables : sauces, taill
 Le vendeur peut créer des suppléments réutilisables avec un prix positif ou nul et une liste de catégories autorisées. Un supplément peut être mis en pause puis réactivé. Le navigateur envoie une référence, mais le prix est relu et recalculé côté serveur avant l’ajout au panier afin d’empêcher une majoration forgée côté client.
 
 La fiche produit affiche les options et suppléments compatibles avec sa catégorie. Le configurateur met à jour le total visible, transmet la sélection au panier et conserve le détail dans la ligne de commande. Le checkout réel n’est pas lancé par les recettes de ce dépôt.
+
+La home publique possède en 2.7.56 un trigger `Rechercher ⌘K` et un dialogue `#rc-home-search`. Le composant est rendu par `header.php` et `front-page.php`, stylé dans `assets/css/frontend.css` et piloté par `assets/js/cart.js`. La soumission transfère la requête vers le filtre marketplace `[data-rc-search]`; le dialogue se ferme, `#restaurants` est ciblé et le focus revient au champ de résultats. Ctrl/Cmd+K, le bouton de fermeture et `Escape` sont pris en charge; `aria-expanded` est synchronisé avec l’état du dialogue.
+
+La recherche est locale au catalogue déjà rendu sur la home : elle ne fournit ni index serveur, ni géolocalisation, ni paiement. La recette 2.7.56 a prouvé le parcours en Chromium mobile 390 px et Chromium desktop 1440 px avec zéro violation axe dans le dialogue et zéro erreur console applicative. Une annulation legacy `notification.mp3` de WCFM reste documentée comme anomalie réseau.
 
 ## Règles de sécurité
 

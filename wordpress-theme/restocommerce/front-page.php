@@ -20,7 +20,19 @@ foreach ( $restaurants as $restaurant ) {
 		$cities[ sanitize_title( $restaurant['area'] ) ] = $restaurant['area'];
 	}
 }
-?>
+	?>
+<dialog class="rc-home-search" id="rc-home-search" data-rc-home-search aria-labelledby="rc-home-search-title">
+	<div class="rc-home-search-inner">
+		<div class="rc-home-search-top"><p class="rc-eyebrow"><?php esc_html_e( 'Recherche locale', 'restocommerce' ); ?></p><button class="rc-icon-button" type="button" data-rc-close-search aria-label="<?php esc_attr_e( 'Fermer la recherche', 'restocommerce' ); ?>">×</button></div>
+		<h2 id="rc-home-search-title"><?php esc_html_e( 'Qu’est-ce qui vous ferait plaisir ?', 'restocommerce' ); ?></h2>
+		<form class="rc-home-search-form" data-rc-home-search-form role="search">
+			<label class="rc-home-search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.4-4.4m2.1-5.1a7.2 7.2 0 1 1-14.4 0 7.2 7.2 0 0 1 14.4 0Z"/></svg><span class="screen-reader-text"><?php esc_html_e( 'Rechercher un restaurant, une cuisine ou une ville', 'restocommerce' ); ?></span><input type="search" data-rc-home-search-input placeholder="<?php esc_attr_e( 'Burger, cuisine, quartier…', 'restocommerce' ); ?>" autocomplete="off"></label>
+			<button class="rc-search-submit" type="submit"><?php esc_html_e( 'Voir les adresses', 'restocommerce' ); ?><span aria-hidden="true">→</span></button>
+		</form>
+		<div class="rc-search-suggestions"><p><?php esc_html_e( 'Les envies du moment', 'restocommerce' ); ?></p><div><?php foreach ( array( 'Burgers', 'Cuisine marocaine', 'Casablanca' ) as $suggestion ) : ?><button type="button" data-rc-search-suggestion="<?php echo esc_attr( $suggestion ); ?>"><?php echo esc_html( $suggestion ); ?></button><?php endforeach; ?></div></div>
+		<p class="rc-home-search-hint"><?php esc_html_e( 'La recherche filtre les restaurants, cuisines et quartiers disponibles sur RestoCommerce.', 'restocommerce' ); ?></p>
+	</div>
+</dialog>
 <section class="rc-marketplace-hero">
 	<span class="rc-orbit rc-orbit-top" aria-hidden="true"></span><span class="rc-orbit rc-orbit-bottom" aria-hidden="true"></span>
 	<div class="rc-wrap rc-marketplace-hero-grid">

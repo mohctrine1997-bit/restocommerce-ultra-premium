@@ -1,7 +1,7 @@
 /* Direction « Le Comptoir Éditorial » : filtres instantanés et surfaces de commande courtes, sans framework. */
 (() => {
-  const qs = (selector, scope = document) => scope.querySelector(selector);
-  const qsa = (selector, scope = document) => [...scope.querySelectorAll(selector)];
+  const qs = (selector, scope = document) => scope?.querySelector(selector);
+  const qsa = (selector, scope = document) => scope ? [...scope.querySelectorAll(selector)] : [];
 		const body = document.body;
 		const feedbackStack = qs('[data-rc-feedback-stack]');
 		const showFeedback = (message, kind = 'success', retry = null) => {
@@ -43,6 +43,10 @@
 			qs('[data-rc-retry-marketplace]', marketplace)?.addEventListener('click', () => { setMarketplaceState('success'); }); qs('[data-rc-dismiss-marketplace-success]', marketplace)?.addEventListener('click', () => { setMarketplaceState(''); apply(); search?.focus(); });
 			if (/^marketplace-(loading|error|success|empty)$/.test(requestedState)) setMarketplaceState(requestedState.replace('marketplace-', ''));
 	  }
+
+	  const homeSearch = qs('[data-rc-home-search]'); const homeSearchTrigger = qs('[data-rc-open-search]'); const homeSearchInput = qs('[data-rc-home-search-input]', homeSearch); const marketplaceSearch = marketplace ? qs('[data-rc-search]', marketplace) : null; const closeHomeSearch = (restoreFocus = true) => { if (!homeSearch) return; if (typeof homeSearch.close === 'function' && homeSearch.open) homeSearch.close(); else homeSearch.removeAttribute('open'); homeSearchTrigger?.setAttribute('aria-expanded', 'false'); if (restoreFocus) homeSearchTrigger?.focus(); }; const openHomeSearch = () => { if (!homeSearch) return; if (typeof homeSearch.showModal === 'function' && !homeSearch.open) homeSearch.showModal(); else homeSearch.setAttribute('open', ''); homeSearchTrigger?.setAttribute('aria-expanded', 'true'); window.requestAnimationFrame(() => homeSearchInput?.focus()); };
+	  homeSearchTrigger?.addEventListener('click', openHomeSearch); qs('[data-rc-close-search]', homeSearch)?.addEventListener('click', () => closeHomeSearch()); homeSearch?.addEventListener('click', (event) => { if (event.target === homeSearch) closeHomeSearch(); }); document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && homeSearch?.open) { event.preventDefault(); closeHomeSearch(); return; } if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); openHomeSearch(); } });
+	  qsa('[data-rc-search-suggestion]', homeSearch).forEach((button) => button.addEventListener('click', () => { if (homeSearchInput) { homeSearchInput.value = button.dataset.rcSearchSuggestion || ''; homeSearchInput.focus(); } })); homeSearch?.querySelector('[data-rc-home-search-form]')?.addEventListener('submit', (event) => { event.preventDefault(); const value = (homeSearchInput?.value || '').trim(); if (marketplaceSearch) { marketplaceSearch.value = value; marketplaceSearch.dispatchEvent(new Event('input', { bubbles: true })); } closeHomeSearch(false); const results = document.querySelector('#restaurants'); results?.scrollIntoView({ behavior: 'smooth', block: 'start' }); window.setTimeout(() => marketplaceSearch?.focus(), 450); });
 
 	  const normalizeLoopVendorMarkup = () => { qsa('.wcfmmp_sold_by_container').forEach((container) => { const label = qs('.wcfmmp_sold_by_label', container)?.textContent.replace(/[:\\s]+$/u, '').trim() || 'Restaurant partenaire'; const links = qsa('a', container); links.forEach((link) => { const image = qs('img', link); const text = link.textContent.replace(/\\s+/gu, ' ').trim(); if (!text && !image) { link.remove(); return; } link.classList.remove('woocommerce-LoopProduct-link', 'woocommerce-loop-product__link'); link.classList.add('rc-sold-by-link'); if (!link.getAttribute('aria-label')) link.setAttribute('aria-label', label); if (image) image.alt = ''; }); }); };
 	  normalizeLoopVendorMarkup();

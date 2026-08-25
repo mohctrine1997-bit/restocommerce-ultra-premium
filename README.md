@@ -2,7 +2,7 @@
 
 # RestoCommerce
 
-**Version de référence publique : 2.7.54.** Le staging associé sert le thème RestoCommerce 2.7.54. Cette version comprend une bibliothèque de carte pour catégories visuelles, groupes de choix par catégorie et suppléments tarifés avec recalcul côté serveur.
+**Version de référence publique : 2.7.56.** Le staging associé sert le thème RestoCommerce 2.7.56. Cette version comprend une bibliothèque de carte pour catégories visuelles, groupes de choix par catégorie et suppléments tarifés avec recalcul côté serveur, ainsi qu’une recherche premium home avec filtrage client-side accessible.
 
 RestoCommerce est un thème WordPress mobile-first pour une marketplace de restaurants sous **WooCommerce** et **WCFM Marketplace**. Il fournit une découverte de restaurants, des fiches de carte configurables, un panier latéral, un checkout WhatsApp et un cockpit vendeur propriétaire pour les opérations quotidiennes.
 
@@ -10,7 +10,7 @@ RestoCommerce est un thème WordPress mobile-first pour une marketplace de resta
 
 ## Passation développeur
 
-Commencez par [`docs/handoff/DEVELOPER-HANDOFF.md`](docs/handoff/DEVELOPER-HANDOFF.md), qui décrit l’architecture WordPress/WooCommerce/WCFM, la version 2.7.54, le module catégories/options/suppléments, les règles de sécurité, le protocole de déploiement et les limites encore ouvertes. Les contrats de migration et les rapports de recette assainis se trouvent dans [`docs/handoff/`](docs/handoff/).
+Commencez par [`docs/handoff/DEVELOPER-HANDOFF.md`](docs/handoff/DEVELOPER-HANDOFF.md), qui décrit l’architecture WordPress/WooCommerce/WCFM, la version 2.7.56, le module catégories/options/suppléments, la recherche premium home, les règles de sécurité, le protocole de déploiement et les limites encore ouvertes. La note [`docs/handoff/home-search-2756.md`](docs/handoff/home-search-2756.md) détaille ce dernier incrément. Les contrats de migration et les rapports de recette assainis se trouvent dans [`docs/handoff/`](docs/handoff/).
 
 ## Périmètre du dépôt
 
