@@ -8,6 +8,10 @@ RestoCommerce est un thème WordPress mobile-first pour une marketplace de resta
 
 > Le dépôt contient du code et des scripts de recette. Il ne contient volontairement ni identifiant, ni mot de passe, ni export de base de données, ni archive de déploiement, ni capture de sessions de test.
 
+## Passation développeur
+
+Commencez par [`docs/handoff/DEVELOPER-HANDOFF.md`](docs/handoff/DEVELOPER-HANDOFF.md), qui décrit l’architecture WordPress/WooCommerce/WCFM, la version 2.7.54, le module catégories/options/suppléments, les règles de sécurité, le protocole de déploiement et les limites encore ouvertes. Les contrats de migration et les rapports de recette assainis se trouvent dans [`docs/handoff/`](docs/handoff/).
+
 ## Périmètre du dépôt
 
 | Dossier | Rôle |
