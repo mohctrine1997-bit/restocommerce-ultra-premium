@@ -1,0 +1,4 @@
+/* Direction « Atelier du Service » : correction WCAG localisée, sans altérer la hiérarchie éditoriale du wizard. */
+@media (min-width:760px){
+  .rc-product-wizard-main>p{color:#315e50}
+}

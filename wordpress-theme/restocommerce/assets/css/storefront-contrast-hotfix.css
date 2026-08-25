@@ -1,0 +1,2 @@
+/* Correctif a11y : les CTA terre cuite emploient une encre claire, y compris lorsqu’une palette restaurant est active. */
+.rc-storefront .rc-store-hero-button,.rc-storefront .rc-store-closing>button[data-rc-open-cart]{color:#fffdf8!important;text-shadow:none}.rc-storefront .rc-store-hero-button span,.rc-storefront .rc-store-closing>button[data-rc-open-cart] span{color:inherit}

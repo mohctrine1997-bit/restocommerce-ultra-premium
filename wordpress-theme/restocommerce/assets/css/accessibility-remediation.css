@@ -1,0 +1,76 @@
+/*
+ * Direction « Le Comptoir Éditorial » : conserver la chaleur terre cuite et le vert service
+ * tout en garantissant des libellés lisibles, sobres et rassurants sur chaque surface papier.
+ */
+:root{
+  --rc-clay-accessible:#853725;
+  --rc-muted-accessible:#36574b;
+  --rc-filter-accessible:#345047;
+  --rc-area-accessible:#9a412d;
+}
+
+.rc-brand-copy small,
+.rc-eyebrow,
+.rc-hero-proof b,
+.rc-steps b{color:var(--rc-clay-accessible)}
+
+.rc-intro,
+.rc-hero-proof small,
+.rc-filter-bar>span,
+.rc-results-meta p,
+.rc-card-description,
+.rc-prep-time,
+.rc-steps p,
+.rc-site-footer{color:var(--rc-muted-accessible)}
+
+.rc-filter-bar button{color:var(--rc-filter-accessible)}
+.rc-restaurant-area{background:var(--rc-area-accessible)}
+
+.rc-home-city-guide .rc-eyebrow{color:#0d241e}
+.rc-home-assurances-grid article b{color:var(--rc-clay-accessible)}
+.rc-home-assurances-grid article p{color:var(--rc-muted-accessible)}
+
+/* Fiche restaurant : conserver le contraste chaud, y compris dans les micro-libellés et prix. */
+.rc-store-menu>header>p,
+.rc-store-menu-tip p,
+.rc-store-menu-description{color:var(--rc-muted-accessible)}
+.rc-store-menu-nav>button:not(.is-active){color:var(--rc-filter-accessible)}
+.rc-store-menu-copy>strong,
+.rc-store-menu-actions>button,
+.rc-store-info-grid article>b{color:var(--rc-clay-accessible)}
+.rc-store-closing>div>.rc-eyebrow{color:#42190f!important}
+
+/* Dashboard vendeur : rendre tous les libellés de navigation et d’aide lisibles au premier regard. */
+.rc-vendor-dashboard .rc-vendor-tabs--sidebar>button:not(.is-active)>span{color:var(--rc-muted-accessible)!important}
+.rc-vendor-dashboard .rc-vendor-tabs--sidebar>.is-active[data-rc-tab]>span{color:#fffaf0!important}
+.rc-vendor-dashboard .rc-vendor-help>p,
+.rc-vendor-dashboard .rc-vendor-return,
+.rc-vendor-dashboard .rc-vendor-panel-heading>div>p,
+.rc-vendor-dashboard .rc-vendor-store-name{color:var(--rc-muted-accessible)!important}
+.rc-vendor-dashboard .rc-vendor-help>a,
+.rc-vendor-dashboard .rc-vendor-header>div:first-child>p{color:var(--rc-clay-accessible)!important}
+
+/* Fiche plat et configurateur : prix, aides et conditions restent lisibles sur les surfaces ivoire. */
+.rc-product-breadcrumb,
+.rc-product-breadcrumb>span,
+.rc-product-description,
+.rc-product-from>span,
+.rc-quick-conditions>p{color:var(--rc-muted-accessible)!important}
+.rc-product-breadcrumb a,
+.rc-product-price,
+.rc-product-price .woocommerce-Price-amount,
+.rc-product-more-grid small .woocommerce-Price-amount,
+.rc-quick-option-set legend span,
+.rc-quick-note small{color:var(--rc-clay-accessible)!important}
+
+.rc-cart-drawer[aria-hidden="true"]{
+  visibility:hidden;
+  pointer-events:none;
+  transition:transform .28s cubic-bezier(.23,1,.32,1),visibility 0s linear .28s;
+}
+
+.rc-cart-drawer[aria-hidden="false"]{
+  visibility:visible;
+  pointer-events:auto;
+  transition:transform .28s cubic-bezier(.23,1,.32,1),visibility 0s linear 0s;
+}

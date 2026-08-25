@@ -1,0 +1,105 @@
+/** Direction « Le Comptoir Éditorial » : ivoire chaud, vert service, matières éditoriales et mouvement minimal. */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-sans: "Manrope", Arial, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.967 0.012 88);
+  --foreground: oklch(0.282 0.043 166);
+  --card: oklch(0.988 0.008 92);
+  --card-foreground: oklch(0.282 0.043 166);
+  --popover: oklch(0.967 0.012 88);
+  --popover-foreground: oklch(0.282 0.043 166);
+  --primary: oklch(0.282 0.043 166);
+  --primary-foreground: oklch(0.985 0.008 92);
+  --secondary: oklch(0.922 0.027 79);
+  --secondary-foreground: oklch(0.282 0.043 166);
+  --muted: oklch(0.932 0.018 84);
+  --muted-foreground: oklch(0.535 0.037 164);
+  --accent: oklch(0.897 0.041 64);
+  --accent-foreground: oklch(0.282 0.043 166);
+  --destructive: oklch(0.6 0.17 28);
+  --destructive-foreground: oklch(0.985 0.008 92);
+  --border: oklch(0.84 0.025 85);
+  --input: oklch(0.84 0.025 85);
+  --ring: oklch(0.6 0.12 155);
+}
+
+* { @apply border-border outline-ring/50; }
+html { scroll-behavior: smooth; }
+body { @apply bg-background text-foreground font-sans antialiased; }
+button:not(:disabled), [role="button"]:not([aria-disabled="true"]), [type="button"]:not(:disabled), [type="submit"]:not(:disabled), [type="reset"]:not(:disabled), a[href], select:not(:disabled), input[type="checkbox"] { @apply cursor-pointer; }
+::selection { background: #d77757; color: #fffaf0; }
+
+.service-trace {
+  position: relative;
+  display: block;
+  height: 24px;
+  width: 78px;
+  color: currentColor;
+}
+
+.service-trace::before {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 58px;
+  height: 14px;
+  content: "";
+  border: 2px solid currentColor;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-radius: 0 44px 0 0;
+  transform: rotate(-12deg);
+}
+
+.service-trace::after {
+  position: absolute;
+  top: 16px;
+  left: 60px;
+  width: 7px;
+  height: 7px;
+  content: "";
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.marketplace-orbit { pointer-events: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  * { scroll-behavior: smooth; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}

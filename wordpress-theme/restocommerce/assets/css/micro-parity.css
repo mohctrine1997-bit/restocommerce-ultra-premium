@@ -1,0 +1,43 @@
+/**
+ * Direction « Le Comptoir Éditorial » : calibrage de fidélité basé sur les mesures Playwright React.
+ * Cette couche conserve les données WCFM/WooCommerce tout en normalisant géométrie et rythme.
+ */
+@media (min-width:1200px){
+  .rc-wrap{width:min(calc(100% - 6rem),93.75rem)}
+  .rc-marketplace-hero-copy{max-width:55rem}
+  .rc-marketplace-hero-copy{transform:translateY(8px)}
+  .rc-marketplace-heading{grid-template-columns:6fr 5fr;gap:8.5rem;transform:translateY(10px)}
+  .rc-marketplace-heading h2{font-size:3.75rem;line-height:1;letter-spacing:-.055em}
+  .rc-search-field{width:calc(100% - 3px);margin-left:3px;transform:translateY(12px)}
+  .rc-search-field input{height:48px;padding-inline:44px;font-size:.875rem;font-weight:600}
+  .rc-restaurant-grid{margin-top:calc(1.45rem - 13px)}
+  .rc-restaurant-card{padding-top:1.25rem}
+  .rc-store-hero,.rc-store-hero-inner{min-height:710px}
+  .rc-store-hero-inner{grid-template-columns:minmax(0,7fr) minmax(220px,3fr);padding-block:7.5rem 4rem}
+  .rc-store-hero-copy{transform:translateY(-8.125rem)}
+  .rc-store-hero h1{max-width:44rem;font-size:clamp(3.4rem,7vw,7rem);line-height:.88;letter-spacing:-.055em}
+  .rc-store-menu{padding-block:4.45rem 6.25rem}
+  .rc-store-menu>header{grid-template-columns:7fr 4fr;gap:6rem;margin-bottom:2.5rem}
+  .rc-store-menu h2{font-size:3.75rem;line-height:1;letter-spacing:-.05em}
+  .rc-store-menu-layout{grid-template-columns:220px minmax(0,1fr);gap:2.5rem}
+  .rc-store-menu-grid{gap:2.5rem 1.5rem}
+  .rc-store-menu-copy h3{font-size:1.5rem;line-height:1;letter-spacing:-.035em}
+  .rc-store-menu-description{min-height:2.5rem;font-size:.875rem;line-height:1.25}
+}
+.rc-site-header--store .rc-header-inner{min-height:72px}
+.rc-site-header--store .rc-brand-copy small{display:none}
+.rc-site-header--store .rc-primary-nav{gap:1.75rem}
+.rc-site-header--store .rc-primary-nav a{font-weight:600}
+.rc-cart-button{position:relative;display:inline-flex;align-items:center;gap:.5rem;height:44px;border:0;border-radius:999px;background:var(--rc-ink);padding:0 1rem;color:var(--rc-cream);font:700 .875rem var(--rc-sans);box-shadow:0 8px 22px rgba(23,63,53,.18);cursor:pointer;transition:transform .16s cubic-bezier(.23,1,.32,1)}
+.rc-cart-button:hover{transform:translateY(-2px)}
+.rc-cart-button:active{transform:scale(.97)}
+.rc-cart-button svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8}
+.rc-cart-button [data-rc-cart-count]{display:grid;min-width:20px;height:20px;place-items:center;border:2px solid var(--rc-ink);border-radius:50%;background:var(--rc-clay);color:#fff;font-size:11px}
+.rc-cart-medallion .rc-cart-button-label{display:none}
+.rc-store-info--after-menu{border-top:1px solid var(--rc-line);border-bottom:0}
+@media (max-width:600px){
+  .rc-site-header--store .rc-brand-copy strong{font-size:1.05rem}
+  .rc-cart-button{width:42px;padding:0;justify-content:center;border:4px solid var(--rc-moss);border-radius:50%}
+  .rc-cart-button-label{display:none}
+  .rc-cart-button [data-rc-cart-count]{position:absolute;right:-5px;top:-5px}
+}
